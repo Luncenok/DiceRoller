@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        tools:src="@drawable/dice_5"
+        tools:srcCompat="@drawable/dice_5"
         android:contentDescription="@string/dice"
         app:srcCompat="@drawable/empty_dice" />
 
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        tools:src="@drawable/dice_3"
+        tools:srcCompat="@drawable/dice_3"
         android:contentDescription="@string/dice"
         app:srcCompat="@drawable/empty_dice" />
 
@@ -46,6 +46,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/reset_label" />
+        android:text="@string/clear_label" />
 
 </LinearLayout>

@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         val resetButton: Button = findViewById(R.id.reset_button)
         rollButton.setOnClickListener { rollDice() }
         countUpButton.setOnClickListener { countUp() }
-        resetButton.setOnClickListener { reset() }
+        resetButton.setOnClickListener { clear() }
     }
 
     private fun rollDice() {
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun reset() {
+    private fun clear() {
         randomInt = 0
         randomInt2 = 0
         setImageRes()
