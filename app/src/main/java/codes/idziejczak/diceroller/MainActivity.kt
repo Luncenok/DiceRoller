@@ -7,14 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var diceImage: ImageView
+    private lateinit var diceImage2: ImageView
     private var randomInt: Int = 0
+    private var randomInt2: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         diceImage = findViewById(R.id.dice_image)
-        setImageRes()
+        diceImage2 = findViewById(R.id.dice_image2)
 
         val rollButton: Button = findViewById(R.id.roll_button)
         val countUpButton: Button = findViewById(R.id.count_up_button)
@@ -26,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun rollDice() {
         randomInt = (1..6).random()
+        randomInt2 = (1..6).random()
         setImageRes()
     }
 
@@ -34,23 +37,31 @@ class MainActivity : AppCompatActivity() {
             randomInt++
             setImageRes()
         }
+        if (randomInt2 != 6) {
+            randomInt2++
+            setImageRes()
+        }
     }
 
     private fun reset() {
         randomInt = 0
+        randomInt2 = 0
         setImageRes()
     }
 
     private fun setImageRes() {
-        val drawableResource = when (randomInt) {
-            0 -> R.drawable.empty_dice
-            1 -> R.drawable.dice_1
-            2 -> R.drawable.dice_2
-            3 -> R.drawable.dice_3
-            4 -> R.drawable.dice_4
-            5 -> R.drawable.dice_5
-            else -> R.drawable.dice_6
-        }
-        diceImage.setImageResource(drawableResource)
+        diceImage.setImageResource(getRandomDiceImage(randomInt))
+        diceImage2.setImageResource(getRandomDiceImage(randomInt2))
     }
+
+    private fun getRandomDiceImage(ri: Int): Int = when (ri) {
+        0 -> R.drawable.empty_dice
+        1 -> R.drawable.dice_1
+        2 -> R.drawable.dice_2
+        3 -> R.drawable.dice_3
+        4 -> R.drawable.dice_4
+        5 -> R.drawable.dice_5
+        else -> R.drawable.dice_6
+    }
+
 }
